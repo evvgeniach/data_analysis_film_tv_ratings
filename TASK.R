@@ -5,15 +5,14 @@ cast_cred <- read_csv("C:/Users/Evgenia Charalambous/OneDrive/evgenia/Έγγρα
 movies_shows <- read_csv("C:/Users/Evgenia Charalambous/OneDrive/evgenia/Έγγραφα/Nepa_Task/movies_and_shows.csv")
 
 # function to replace strings with lists
-clean_genre <- function(x) {
+clean_func <- function(x) {
   cleaned_str <- gsub("\\[|\\]|\'", "", x)
   split_str <- strsplit(cleaned_str, ", ")
-  
   return(split_str[[1]])
 }
 
-movies_shows$genres <- lapply(movies_shows$genres, clean_genre)
-movies_shows$production_countries <- lapply(movies_shows$production_countries, clean_genre)
+movies_shows$genres <- lapply(movies_shows$genres, clean_func)
+movies_shows$production_countries <- lapply(movies_shows$production_countries, clean_func)
 
 
 ## Q1
